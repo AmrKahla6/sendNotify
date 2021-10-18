@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Notifications\PostNewNotification;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $user = Auth::user();
+    $user->notify(new PostNewNotification);
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

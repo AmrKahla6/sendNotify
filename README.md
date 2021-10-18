@@ -1,1 +1,1 @@
-## Send Notification to mobile app using firebase
+## Notification in laravel
